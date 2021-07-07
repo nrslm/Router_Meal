@@ -2,22 +2,21 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Spinner } from "react-bootstrap";
 import {
-    BrowserRouter as Router,
     useParams
 } from 'react-router-dom';
-import NavBar from './NavBar'
+import NavBar from '../../../Header/NavBar';
 
 function Cards() {
     const [cards, setCards] = useState([]);
-    const [showSpiner2, setShowSpiner2] = useState(true)
-    const params = useParams()
+    const [showSpiner2, setShowSpiner2] = useState(true);
+    const params = useParams();
 
     useEffect(() => {
         axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${params.id}`)
             .then(function (response) {
                 setCards(response.data.meals[0]);
                 console.log(response);
-                setShowSpiner2(false)
+                setShowSpiner2(false);
             })
             .catch(function (error) {
                 // handle error

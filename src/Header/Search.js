@@ -23,7 +23,7 @@ function Search() {
     axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${params.text}`)
       .then(function (response) {
         setSearchText(response.data.meals);
-        console.log(response);
+        console.log(response);  
         setShowSpiner2(false);
       })
       .catch(function (error) {
@@ -40,11 +40,12 @@ function Search() {
     <div>
       {searchText === null ?
         <div>
+          <NavBar />
           <img className = {'imgError'} src="https://www.plctr.com/wp-content/uploads/plc-errors.jpg" />
         </div>
         :
-        <div>
-          <NavBar />
+        <div className = {'block_Search'}>
+          <NavBar/>
           <Row>
             {searchText.map((v, i) => {
               return (

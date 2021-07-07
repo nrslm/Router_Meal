@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Card,Col, Row, Spinner } from "react-bootstrap";
+import { Button,Card,Col, Row, Spinner } from "react-bootstrap";
 import {
-    BrowserRouter as Router,
     useParams
 } from 'react-router-dom';
+// import components:
+import Basket from './../Context/Basket';
 import NavBar from './NavBar'
 
 function Country() {
@@ -55,6 +56,8 @@ function Country() {
                                         <Card.Body>
                                             <Card.Title>{v.strMeal}</Card.Title>
                                         </Card.Body>
+                                        {/* <Button onClick = {() => t.Basket(value.idMeal)} variant={showText === true ? "success" : "danger"}>{showText === true ? 'Добавить корзинку' : 'Удалить из корзинки!!!'}</Button> */}
+                                        <Button>Add</Button>
                                     </Card>
                                 </Col>
 
